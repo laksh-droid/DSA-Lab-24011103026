@@ -28,12 +28,12 @@ class BinaryTree{
         TreeNode* Search(int);
         TreeNode* search(TreeNode*, int);
 
-        
         BinaryTree(){
             root = NULL;
         }
 };
 
+//creates a new node
 BinaryTree::TreeNode* BinaryTree::CreateNode(int key) {
     TreeNode* newnode = new TreeNode;
     newnode -> data = key;
@@ -58,18 +58,18 @@ BinaryTree::TreeNode* BinaryTree::insert(TreeNode* root, int key) {
         root -> left = insert(root->left, key);
     }
 
-    else if (key > root -> data) {
+    else if (key > root -> data) { 
         root -> right = insert(root->right, key);
     }
 
     return root;
 }
 
-
 BinaryTree::TreeNode* BinaryTree::Search(int key) {
     return search(root, key);
 }
 
+//searches for a node in the BST
 BinaryTree::TreeNode* BinaryTree::search(TreeNode* root, int key) {
     if (root == NULL || key == root->data) {
         return root;
@@ -82,7 +82,6 @@ BinaryTree::TreeNode* BinaryTree::search(TreeNode* root, int key) {
     return search(root->right, key);
 
 }
-
 
 //inorder traversal
 void BinaryTree::InorderTraversal() {
@@ -128,7 +127,6 @@ void BinaryTree::postorder_traversal(TreeNode* root) {
     postorder_traversal(root->right);
     printf("%d ", root->data);
 }
-
 
 int main() {
     BinaryTree tree;
@@ -183,8 +181,6 @@ int main() {
             default:
                 printf("\nInvalid choice. Enter again.\n");
                 break;
-        }
-        
+        }  
     }
-
 }
